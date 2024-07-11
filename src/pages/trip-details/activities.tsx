@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
-import { ptBR, ptBr } from "date-fns/locale";
+import { ptBR } from "date-fns/locale";
 import { CircleCheck } from "lucide-react";
 
 interface Activity {
