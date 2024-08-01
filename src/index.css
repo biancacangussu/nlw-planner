@@ -5,3 +5,12 @@
 * {
   min-width: 0;
 }
+
+input {
+  color-scheme: dark;
+}
+
+:root {
+  --rdp-accent-color: indigo;
+  --rpd-background-color: black;
+}
