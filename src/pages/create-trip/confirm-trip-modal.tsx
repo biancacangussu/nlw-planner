@@ -1,12 +1,15 @@
 import { X, User } from "lucide-react";
 import { FormEvent } from "react";
+import { Button } from "../../components/button";
 
 interface ConfirmTripModalProps {
   closeConfirmTripModal: () => void
   createTrip: (event: FormEvent<HTMLFormElement>) => void
+  setOwnerEmail: (name: string) => void
+  setOwnerName: (email: string) => void
 }
 
-export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTripModalProps) {
+export function ConfirmTripModal({ closeConfirmTripModal, createTrip, setOwnerName, setOwnerEmail }: ConfirmTripModalProps) {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
       <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
@@ -39,6 +42,7 @@ export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTri
               name="name"
               placeholder="Seu nome completo"
               className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+              onChange={event => setOwnerName(event.target.value)}
             />
           </div>
 
@@ -49,15 +53,13 @@ export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTri
               name="email"
               placeholder="Seu e-mail pessoal"
               className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+              onChange={event => setOwnerEmail(event.target.value)}
             />
           </div>
 
-          <button
-            type="submit"
-            className="bg-lime-300 text-lime-950 justify-center rounded-lg px-5 h-11 w-full font-medium flex items-center gap-2 hover:bg-lime-400"
-          >
+          <Button type="submit" variant="primary" size="full">
             Confirmar criação da viagem
-          </button>
+          </Button>
         </form>
       </div>
     </div>
